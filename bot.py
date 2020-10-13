@@ -1,8 +1,16 @@
+from logging import INFO
 from pyrogram import Client, filters
 from pytube import YouTube, exceptions
 import os
 import requests
+import logging
+import sys
+from autologging import logged, traced
 
+# Enable logging
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=INFO)
+logger = logging.getLogger(__name__)
 
 api_id = int(os.environ["API_ID"])
 api_hash = os.environ["API_HASH"]
@@ -11,6 +19,8 @@ bot_token = os.environ["BOT_TOKEN"]
 app = Client("my_bot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
 
+@traced
+@logged
 @app.on_message(filters.command("start", prefixes="/") & ~filters.edited)
 def start(client, message):
     text = f"Hello {str(message.from_user.first_name)}, I am a YouTube downloader bot made by @infinitEplus." + \
@@ -18,6 +28,8 @@ def start(client, message):
     app.send_message(chat_id=message.from_user.id, text=text)
 
 
+@traced
+@logged
 @app.on_message(filters.command("help", prefixes="/") & ~filters.edited)
 def help(client, message):
     text = 'Download YT videos and audios by:\n' + \
@@ -26,6 +38,8 @@ def help(client, message):
     message.reply_text(text)
 
 
+@traced
+@logged
 @app.on_message(filters.command("video", prefixes="/") & ~filters.edited)
 def video_dl(client, message):
     chat_id = message.from_user.id
@@ -55,6 +69,8 @@ def video_dl(client, message):
         message.reply_text("Given URL couldn't be parsed.")
 
 
+@traced
+@logged
 @app.on_message(filters.command("audio", prefixes="/") & ~filters.edited)
 def audio_dl(client, message):
     chat_id = message.from_user.id
