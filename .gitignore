@@ -1,0 +1,8 @@
+# Byte-compiled files
+__pycache__/
+
+# Files with credentials
+config.ini
+
+# Session files
+*.session
