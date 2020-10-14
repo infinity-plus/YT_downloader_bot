@@ -1,0 +1,30 @@
+{
+    "name": "YT_downloader_bot",
+    "description": "A Telegram YouTUbe to audio/viodo downloader, made with pyrogram",
+    "repository": "https://github.com/infinity-plus/YT_downloader_bot",
+    "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQDxc3gV0FA7YbxbVFh_mZ_4_CGs_vMaAsmRg&usqp=CAU",
+    "keywords": [
+        "python",
+        "pyrogram",
+        "telegram",
+        "youtube"
+    ],
+    "image": "heroku/python",
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    },
+    "env": {
+        "API_ID": {
+            "description": "App api_id from https://my.telegram.org"
+        },
+        "API_HASH": {
+            "description": "App api_hash from https://my.telegram.org"
+        },
+        "BOT_TOKEN": {
+            "description": "Bot token from https://t.me/BotFather"
+        }
+    }
+}
