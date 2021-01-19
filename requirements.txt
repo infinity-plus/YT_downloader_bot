@@ -1,4 +1,4 @@
 requests==2.24.0
-Pyrogram==1.0.7
+Pyrogram==1.1.13
 Autologging==1.3.2
 pytube3==9.6.4
