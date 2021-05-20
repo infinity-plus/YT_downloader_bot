@@ -25,7 +25,7 @@ with app:
 @logged
 @app.on_message(filters.command(["start", f"start@{botname}"], prefixes="/") & ~filters.edited)
 def start(client, message):
-    text = f"Hello {str(message.from_user.first_name)}, I am a YouTube downloader bot made by @infinitEplus." + \
+    text = f"Hello {str(message.from_user.first_name)}, I am a  Disney Team,YouTube downloader bot project by @disneygrou." + \
         "Please see /help if you want to know how to use me."
     app.send_message(chat_id=message.chat.id, text=text)
 
@@ -37,6 +37,7 @@ def help(client, message):
     text = 'Download YT videos and audios by:\n' + \
         '/video link\n' + \
         '/audio link'
+        '👨‍💻Developer👨‍💻', url='https://t.me/doreamonfans1'
     app.send_message(chat_id=message.chat.id, text=text)
 
 
